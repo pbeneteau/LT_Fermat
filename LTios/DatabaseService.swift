@@ -49,7 +49,7 @@ extension DatabaseService {
     
     func setOnDisconnectHandler() {
         
-        let presenceRef = Database.database().reference(withPath: "status/\(String(describing: mainUserInstance.uid!))");
+        let presenceRef = Database.database().reference(withPath: "status/\(String(describing: mainUserInstance.uid!))")
         // Write a string when this client loses connection
         presenceRef.onDisconnectSetValue(false)
     }
@@ -154,7 +154,7 @@ extension DatabaseService {
         reference.getDocument { doc, error in
             
             guard let userDocument = doc else {
-                print("[Error] retrieving a user information: \(error!.localizedDescription)")
+                print("[Error] retreiving a user information: \(error!.localizedDescription)")
                 completion(nil)
                 return
             }

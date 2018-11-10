@@ -38,7 +38,7 @@ class SettingsCell: UITableViewCell {
         } else {
             backgroundImage.image = UIImage(named: "CellBackgroundSolo")
         }
-
+        
         titleLabel.text = settings.name
         descriptionLabel.text = settings.description
         switchButton.isOn = settings.state
@@ -91,10 +91,15 @@ class SettingsCell: UITableViewCell {
         
         if type == .onOff {
             
-            DatabaseService.shared.updateOnOffSettings(section: self.settings.section.lowercased(), code: self.settings.code, state: switchButton.isOn) { success in
+            DatabaseService.shared.updateOnOffSettings(section: settings.section.lowercased(), code: settings.code, state: switchButton.isOn) { success in
+                
+                mainUserInstance.settings.setSettingsValue(category: self.settings.section.lowercased(), self.switchButton.isOn, forKey: self.settings.code)
+                
+                UserSettings.updateAppSettingsFromCode(self.settings.code, state: self.switchButton.isOn)
             }
         }
     }
+    
     
 }
 
@@ -110,6 +115,7 @@ enum SettingsCellType {
     case segue
     case link
 }
+
 
 
 
