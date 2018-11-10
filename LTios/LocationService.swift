@@ -16,7 +16,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     private let googleApiKey = "AIzaSyC6HXD576iBNzxAXG7CeUmvSeEzO_qzreM"
     
-    private let locationManager: CLLocationManager
+    let locationManager: CLLocationManager
     private var locationDataArray: [CLLocation]
     private var useFilter: Bool
     

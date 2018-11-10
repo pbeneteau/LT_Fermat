@@ -19,7 +19,6 @@ class MainViewController: ModalViewViewController {
     private var bluetoothInterestingUsers = [InterestingUser]()
     
     private var reachability = Reachability()!
-    private var isPrivate = false
     
     private let animations = [AnimationType.from(direction: .bottom, offset: 10)]
     
@@ -77,9 +76,6 @@ class MainViewController: ModalViewViewController {
 extension MainViewController {
     
     @objc func didUpdateUserProfile(_ notification: NSNotification) {
-        
-        // Start nearby bluetooth devices scan
-        BluetoothServices.shared.updateAdvertisingData()
     }
     
     @objc func didFoundNearbyBluetoothUsers(_ notification: NSNotification) {
@@ -127,14 +123,12 @@ extension MainViewController {
     
     @objc func didRequestPrivacyChange(_ notification: NSNotification) {
         
-        if isPrivate {
+        if !mainUserInstance.settings.getStateFromCode("ghost") {
             removeAlert()
             MenuInstance.privacyDidChange(ghost: false)
-            isPrivate = false
         } else {
             showAlert(alert: .privacy)
             MenuInstance.privacyDidChange(ghost: true)
-            isPrivate = true
         }
     }
 }
@@ -281,6 +275,7 @@ extension MainViewController {
             errorTitle.text = "Connexion issue"
             errorLabel.text = "Make sure you are connected to the internet"
             self.view.backgroundColor = UIColor(red:0.92, green:0.35, blue:0.35, alpha:1.0)
+            self.tableView.alpha = 0
         case .privacy:
             errorIcon.image = UIImage(named: "ghost_icon")
             errorTitle.text = "Ghost mode"
@@ -331,6 +326,7 @@ extension MainViewController {
         errorIcon.isHidden = true
         errorTitle.isHidden = true
         errorLabel.isHidden = true
+        self.tableView.alpha = 1
     }
     
     func showAlertBanner(_ type: BannerType) {

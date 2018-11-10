@@ -490,6 +490,7 @@
 			children = (
 				00EBDE9F1F2159A100676E70 /* MainUser.swift */,
 				004289401F4AE3B6007FD732 /* GlobalUser.swift */,
+				387A20B221501CD800B50AF4 /* Settings.swift */,
 				38D0D97B21546E6F00FAB683 /* Device.swift */,
 				384863A22122E6B6004222DE /* InterestingUsers.swift */,
 				00FF14DD1FA7475D00D9F6FB /* Contact.swift */,
@@ -497,7 +498,6 @@
 				002D61551F24DB4E00C2768F /* Variables.swift */,
 				0029BA651F30A37F00C67810 /* Extension.swift */,
 				386466271F85264D00C18D53 /* Labels.swift */,
-				387A20B221501CD800B50AF4 /* Settings.swift */,
 				3879929D215C93E500AE0DF0 /* Notification.swift */,
 				38799292215C50FE00AE0DF0 /* AlertBanner.swift */,
 			);
@@ -766,7 +766,7 @@
 				TargetAttributes = {
 					0007E4D61F1FECD700EBA50C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = D8J97J3MM9;
+						DevelopmentTeam = X9UAR68B43;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -1247,7 +1247,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D8J97J3MM9;
+				DEVELOPMENT_TEAM = X9UAR68B43;
 				INFOPLIST_FILE = LTios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.tastyapp;
@@ -1268,7 +1268,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D8J97J3MM9;
+				DEVELOPMENT_TEAM = X9UAR68B43;
 				INFOPLIST_FILE = LTios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.littleworld.tastyapp;

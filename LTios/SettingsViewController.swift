@@ -106,10 +106,15 @@ class SettingsViewController: ModalViewViewController {
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return userSettings.getTotalSections()
+        return userSettings.getTotalSections() + 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if (userSettings.getTotalSections() == section) { // logout section
+            return 1
+        }
+        
         return userSettings.getTotalRows(section: section)
     }
     
@@ -117,6 +122,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         
         let section = heightForRowAt.section
         let row = heightForRowAt.row
+
+        if section == userSettings.getTotalSections() { // logout cell
+            return 40
+        }
         
         if userSettings.getTotalRows(section: section) == 1 {
             return 97
@@ -131,10 +140,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: SettingsCell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-        
         let section = indexPath.section
         let row = indexPath.row
+        
+        if (section == userSettings.getTotalSections()) { // logout cell
+            return getLogoutCell(indexPath: indexPath)
+        }
+        
+        let cell: SettingsCell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
+
         
         cell.settings = userSettings.settings[section][row]
         
@@ -156,12 +170,19 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == userSettings.getTotalSections() {
+            return 0
+        }
         return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SettingsHeader") as? SettingsHeaderView else {
+            return nil
+        }
+        
+        if section == userSettings.getTotalSections() {
             return nil
         }
         
@@ -178,6 +199,31 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             
             present(SnapchatVC, animated: true, completion: nil)
         }
+    }
+    
+    func getLogoutCell(indexPath: IndexPath) -> UITableViewCell{
+     
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "SettingsLogoutCell", for: indexPath)
+        
+        let logoutButton = UIButton()
+
+        logoutButton.setTitle("Log out", for: .normal)
+        logoutButton.setBackgroundColor(color: .clear, forState: .normal)
+        logoutButton.titleLabel?.textAlignment = .center
+        logoutButton.titleLabel?.font = UIFont(name: "Avenir-Book", size: 19)
+        logoutButton.setTitleColor(Color.mainAppColor, for: .normal)
+
+        cell.contentView.addSubview(logoutButton)
+
+        logoutButton.snp.makeConstraints { (make) -> Void in
+            make.width.equalTo(cell.contentView).multipliedBy(0.7)
+            make.height.equalTo(24)
+            make.center.equalTo(cell.contentView.center)
+        }
+        
+        cell.contentView.layoutSubviews()
+        
+        return cell
     }
     
 }

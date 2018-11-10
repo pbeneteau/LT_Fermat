@@ -43,6 +43,8 @@ class ProfileViewController: ModalViewViewController {
     private var contactsLabel = UILabel()
     private var contactsVC = ContactsViewController()
     private var notificationsVC: NotificationsTableView!
+    
+    var menuShadowBackground = GradientView()
 
     
     override var prefersStatusBarHidden: Bool {
@@ -51,6 +53,9 @@ class ProfileViewController: ModalViewViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuShadowBackground.alpha = 0.5
+        menuShadowBackground.setGradientColors(topColor: UIColor(white: 1, alpha: 0), botColor: .white)
         
         notificationsVC = NotificationsTableView(style: .plain)
         
@@ -88,6 +93,7 @@ class ProfileViewController: ModalViewViewController {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
         view.addSubview(scrollView)
+        view.addSubview(menuShadowBackground)
         
         containerView.addSubview(settingsButton)
         containerView.addSubview(fullName)
@@ -175,14 +181,6 @@ class ProfileViewController: ModalViewViewController {
             self.notificationsBlock.alpha = 1
             self.scrollView.alpha = 1
         })
-    }
-    
-    @objc func didTapLogOutButton() {
-        
-        do { try Auth.auth().signOut() }
-        catch let error {
-            print("[Error] signing out: \(error.localizedDescription)")
-        }
     }
     
     @objc func didUpdateUserProfile() {
@@ -422,6 +420,13 @@ extension ProfileViewController {
             make.height.equalTo(height)
             make.top.equalTo(contactsLabel.snp.bottom).offset(10)
             make.centerX.equalTo(scrollView)
+        }
+        
+        menuShadowBackground.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(view).multipliedBy(0.1)
+            make.width.equalTo(view)
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(view)
         }
         
         super.updateViewConstraints()

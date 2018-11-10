@@ -37,7 +37,7 @@ class UserSettings: NSObject {
         Settings(sectionId: 0, rowId: 1, code: "chat", section: "Notifications", name: "Chat Notifications", description: "Receive chat notifications", type: SettingsCellType.onOff, state: true),
         Settings(sectionId: 0, rowId: 2, code: "friends", section: "Notifications", name: "FriendsNotifications", description: "Receive friends notifications", type: SettingsCellType.onOff, state: true)],
         [Settings(sectionId: 1, rowId: 0, code: "ghost", section: "Privacy", name: "Ghost Mode", description: "Be hidden from other users", type: SettingsCellType.onOff, state: true),
-        Settings(sectionId: 1, rowId: 1, code: "bgLocation", section: "Privacy", name: "Background Location", description: "Allow Little World to locate you in background", type: SettingsCellType.onOff, state: true)],
+        Settings(sectionId: 1, rowId: 1, code: "bgLocation", section: "Privacy", name: "Background Location", description: "Allow Little World to locate you when it's closed", type: SettingsCellType.onOff, state: true)],
         [Settings(sectionId: 2, rowId: 0, code: "snapchat", section: "Social", name: "Snapchat Account", description: "Unlock cool Snapchat stuff", type: SettingsCellType.segue, state: true)]
     ]
     
@@ -53,7 +53,7 @@ class UserSettings: NSObject {
         }
     }
     
-    func setSettingsValue(category: String, _ value: Bool, forKey key: String) {
+    func setSettingsValue(category: String, _ value: Bool, forKey code: String) {
         
         var index: IndexPath = IndexPath(row: 0, section: 0)
         
@@ -63,7 +63,7 @@ class UserSettings: NSObject {
                 
                 if settings.section.lowercased() == category {
                     
-                    if settings.code == key {
+                    if settings.code == code {
                         self.settings[index.section][index.row].state = value
                     }
                 } else { break }
@@ -71,6 +71,20 @@ class UserSettings: NSObject {
             }
             index.section += 1
         }
+    }
+    
+    func getStateFromCode(_ code: String) -> Bool {
+        
+        for categories in self.settings {
+            
+            for settings in categories {
+                
+                if settings.code == code {
+                    return settings.state
+                }
+            }
+        }
+        return true
     }
     
     override init() {
@@ -103,6 +117,24 @@ class UserSettings: NSObject {
     func getTotalRows(section: Int) -> Int {
         return settings[section].count
     }
+}
+
+
+extension UserSettings {
+    
+    static func updateAppSettingsFromCode(_ code: String, state: Bool) {
+        
+        switch code {
+        case "ghost": 
+            NotificationCenter.default.post(name: Notification.Name(rawValue:"didRequestPrivacyChange"), object: nil)
+            LocationService.shared.locationManager.stopUpdatingLocation()
+            break
+        case "bgLocation":
+            LocationService.shared.locationManager.allowsBackgroundLocationUpdates = state; break
+        default: break
+        }
+    }
+    
 }
 
 extension Dictionary {

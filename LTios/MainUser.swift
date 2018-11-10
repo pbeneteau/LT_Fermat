@@ -51,15 +51,19 @@ class MainUser: GlobalUser {
     override init() {
         super.init()
         
+        // Start menu loading animation
+        MenuInstance.startLoadingAnimation()
+        
+        // Firebase login
         authHandle = Auth.auth().addStateDidChangeListener() { (auth, user) in
 
             if let user = user {
                 print("User logged in: \(user.uid)")
                 self.uid = user.uid
-                DatabaseService.shared.makeUserOnline()
-                DatabaseService.shared.setOnDisconnectHandler()
-                self.getMainInformation(uid: user.uid)
-                self.mailAddress = user.email ?? ""
+                DatabaseService.shared.makeUserOnline() // make user state as online in database
+                DatabaseService.shared.setOnDisconnectHandler() // init on disconnect handler
+                self.getMainInformation(uid: user.uid) // init main user datas and start fetching location
+                self.mailAddress = user.email ?? "" // get mail address from firebase auth
             }
         }
     }
@@ -67,18 +71,26 @@ class MainUser: GlobalUser {
     // init main user datas and start fetching location
     private func getMainInformation(uid: String) {
         
-        MenuInstance.startLoadingAnimation()
-        
+        // Fetch user data from database
         DatabaseService.shared.getUserInformation(uid: uid) { doc in
-            guard let information = doc else { print("[Error] while unwrapping main user information"); return }
-            self.initMainInformation(document: information)
             
-            if self.contacts != nil {
+            guard let information = doc else { print("[Error] while unwrapping main user information"); return }
+            self.initMainInformation(document: information) // init local app user information from fetched data
+            
+            UserSettings.updateAppSettingsFromCode("bgLocation", state: self.settings.getStateFromCode("bgLocation"))
+            
+            if self.contacts != nil && !self.settings.getStateFromCode("ghost") {
+                
+                // Start nearby location people scan
                 LocationService.shared.startUpdatingLocation()
+                
+                // Start nearby bluetooth devices scan
+                BluetoothServices.shared.updateAdvertisingData()
             }
         }
     }
     
+    // Get all user information from Firebase database
     private func initMainInformation(document: DocumentSnapshot) {
         
         guard let data = document.data() else {
@@ -106,10 +118,11 @@ class MainUser: GlobalUser {
             print("[Error] unwrapping user settings")
         }
         
-        saveBasicInformation()
-        notifyDidUpdateUserInformation()
+        saveBasicInformation() // save basic information to user default
+        notifyDidUpdateUserInformation() // notify the whole app that user has been initiated
     }
     
+    // Update user location information from current location place
     private func updateUserLocation(place: CLPlacemark) {
         
         if let location = place.location,
@@ -143,12 +156,6 @@ class MainUser: GlobalUser {
         defaults.set("firstName", forKey: fullName)
         defaults.set("lsatName", forKey: fullName)
         defaults.set("pushID", forKey: pushID)
-    }
-    
-    func mapUserNotifications(data: [String : Any]) {
-        
-        
-        
     }
     
     func notifyDidUpdateLocation() {

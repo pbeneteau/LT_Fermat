@@ -29,6 +29,8 @@ class SettingsTableView: UITableView {
         let cellNib = UINib(nibName: "SettingsCell", bundle: nil)
         register(cellNib, forCellReuseIdentifier: "SettingsCell")
         
+        register(UITableViewCell.self, forCellReuseIdentifier: "SettingsLogoutCell")
+        
         let headerNib = UINib(nibName: "SettingsUITableViewHeader", bundle: nil)
         register(headerNib, forHeaderFooterViewReuseIdentifier: "SettingsHeader")
     }

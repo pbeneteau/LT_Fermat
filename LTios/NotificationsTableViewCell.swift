@@ -69,6 +69,9 @@ class NotificationsTableViewCell: UITableViewCell {
     
     @objc func didTouchActionButton() {
         
+        print(actionButton.state)
+        print(UIControlState.highlighted)
+        
         if actionButton.isActive {
             actionButton.setNormalState()
         } else {
@@ -118,12 +121,11 @@ class ActionButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        titleLabel?.font = LTFont.button
-        setTitle("My", for: [])
-        setTitleColor(.blue, for: [])
+        setTitle("Connect", for: .normal)
         layer.borderColor = Color.Button.Border.active.cgColor
         
         setNormalState()
+        titleLabel?.font = LTFont.button
     }
     
     override func layoutSubviews() {
@@ -138,23 +140,22 @@ class ActionButton: UIButton {
     func setHighlightedState() {
         
         isActive = true
-        print(state)
+        isHighlighted = false
         
-        titleLabel?.textColor = (UIColor.red)
+        setTitleColor(Color.Button.Title.active, for: .normal)
+
         backgroundColor = Color.Button.Background.active
-        setTitle("My", for: [])
-        setTitleColor(.blue, for: [])
+        setTitle("Connected", for: .normal)
     }
     
     func setNormalState() {
         
         isActive = false
-        print(state)
+        isHighlighted = false
         
-        titleLabel?.textColor = (UIColor.red)
+        setTitleColor(Color.Button.Title.normal, for: .normal)
         backgroundColor = Color.Button.Background.normal
-        setTitle("AAAA", for: .normal)
-        setTitleColor(.blue, for: .normal)
+        setTitle("Connect", for: .normal)
     }
     
 }

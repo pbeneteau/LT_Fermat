@@ -43,12 +43,13 @@ class NearbyPlacesViewController: ModalViewViewController {
         
         view.backgroundColor = .clear
         
+        menuShadowBackground.alpha = 0.4
+        menuShadowBackground.setGradientColors(topColor: .clear, botColor: .black)
+        
         containerView.backgroundColor = Color.viewControllerBackground
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        menuShadowBackground.alpha = 0.4
         
         distanceFilterContainer.backgroundColor = .white
         distanceFilterContainer.alpha = 0

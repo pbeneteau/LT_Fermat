@@ -468,7 +468,7 @@ extension MenuViewController {
         self.placesMenuButton.layer.removeAllAnimations()
         self.selectionMenuBar.layer.removeAllAnimations()
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.profileMenuButton.alpha = 0
             self.homeMenuButton.alpha = 0
             self.placesMenuButton.alpha = 0
@@ -485,7 +485,7 @@ extension MenuViewController {
         self.placesMenuButton.layer.removeAllAnimations()
         self.selectionMenuBar.layer.removeAllAnimations()
         
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
             self.profileMenuButton.alpha = 1
             self.homeMenuButton.alpha = 1
             self.placesMenuButton.alpha = 1

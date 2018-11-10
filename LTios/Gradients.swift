@@ -32,14 +32,15 @@ class GradientView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let gradientLayer = layer as! CAGradientLayer
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func setGradientColors(topColor: UIColor, botColor: UIColor) {
         let gradientLayer = layer as! CAGradientLayer
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.colors = [topColor.cgColor, botColor.cgColor]
     }
 }
 
