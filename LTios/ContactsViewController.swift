@@ -91,8 +91,8 @@ class ContactsViewController: ModalViewViewController, UITableViewDataSource {
                 self.contacts.append(Contact(firstName: contact.givenName, lastName: contact.familyName, phoneNumber: formatedPhoneNumber, profilePicture: image, country: "France"))
             }
             self.contacts.sort(by: { $0.lastName < $1.lastName })
-            self.tableView.reloadData()
         }
+        self.tableView.reloadData()
     }
     
 }
