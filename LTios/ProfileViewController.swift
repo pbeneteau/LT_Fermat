@@ -44,9 +44,9 @@ class ProfileViewController: ModalViewViewController {
     private var contactsVC = ContactsViewController()
     private var notificationsVC: NotificationsTableView!
     
+    var profileShadowBackground = GradientView()
     var menuShadowBackground = GradientView()
 
-    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -57,10 +57,13 @@ class ProfileViewController: ModalViewViewController {
         menuShadowBackground.alpha = 0.5
         menuShadowBackground.setGradientColors(topColor: UIColor(white: 1, alpha: 0), botColor: .white)
         
+        profileShadowBackground.alpha = 0
+        profileShadowBackground.setGradientColors(topColor: .black, botColor: UIColor(white: 1, alpha: 0))
+        
         notificationsVC = NotificationsTableView(style: .plain)
         
         backgroundView.backgroundColor = Color.viewControllerBackground
-        containerView.backgroundColor = Color.viewControllerBackground
+        containerView.backgroundColor = .gray //Color.viewControllerBackground
         scrollView.backgroundColor = Color.viewControllerBackground
         
         profilePictureView.contentMode = .scaleAspectFill
@@ -93,17 +96,18 @@ class ProfileViewController: ModalViewViewController {
         view.addSubview(backgroundView)
         view.addSubview(containerView)
         view.addSubview(scrollView)
+        view.addSubview(profileShadowBackground)
         view.addSubview(menuShadowBackground)
+        
+        scrollView.addSubview(notificationsLabel)
+        scrollView.addSubview(notificationsBlock)
+        scrollView.addSubview(contactsLabel)
         
         containerView.addSubview(settingsButton)
         containerView.addSubview(fullName)
         containerView.addSubview(publicName)
         containerView.addSubview(lineView)
         containerView.addSubview(profilePictureView)
-        
-        scrollView.addSubview(notificationsLabel)
-        scrollView.addSubview(notificationsBlock)
-        scrollView.addSubview(contactsLabel)
         
         addUserNotificationsTableView()
 
@@ -126,13 +130,13 @@ class ProfileViewController: ModalViewViewController {
     
     func addContactsVC() {
                 
-        addChildViewController(contactsVC)
+        addChild(contactsVC)
         scrollView.addSubview(contactsVC.view)
     }
     
     func addUserNotificationsTableView() {
         
-        addChildViewController(notificationsVC)
+        addChild(notificationsVC)
         notificationsBlock.addSubview(notificationsVC.view)
     }
     
@@ -226,6 +230,8 @@ class ProfileViewController: ModalViewViewController {
                 make.center.equalTo(notificationsBlock)
             }
             
+            scrollView.contentSize = CGSize(width: view.frame.size.width, height: CGFloat(Float(self.view.frame.height) + contactsVC.getTableViewContentOffset() + notificationsVC.getTableViewContentSize()) + 100)
+            
             self.view.layoutSubviews()
             self.notificationsVC.view.layoutSubviews()
             
@@ -246,7 +252,7 @@ extension ProfileViewController: UIScrollViewDelegate {
         
         if scrollView.contentOffset.y <= view.frame.height * 0.4 && scrollView.contentOffset.y >= 30 {
             
-            let multiplicator = (Float(scrollView.contentOffset.y) / maxContentOffset() * 4)
+            let multiplicator = (Float(scrollView.contentOffset.y) / Float(view.frame.height) * 4)
             
             containerView.snp.remakeConstraints { (make) -> Void in
                 make.width.equalTo(view)
@@ -271,10 +277,14 @@ extension ProfileViewController: UIScrollViewDelegate {
             
             fullName.font = UIFont(name: "Roboto-Medium", size: CGFloat(25 - 10 * multiplicator))
             
+            profileShadowBackground.alpha = CGFloat(multiplicator / 10)
+            
+            print(multiplicator)
+            
             publicName.alpha = CGFloat(1 - multiplicator * 2)
             lineView.alpha = CGFloat(1 - multiplicator * 2)
             
-            containerView.layoutSubviews()
+            view.layoutSubviews()
         }
     }
     
@@ -429,6 +439,13 @@ extension ProfileViewController {
             make.bottom.equalTo(view)
         }
         
+        profileShadowBackground.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(50)
+            make.width.equalTo(view)
+            make.centerX.equalTo(view)
+            make.top.equalTo(containerView.snp.bottom)
+        }
+        
         super.updateViewConstraints()
     }
 }
@@ -441,7 +458,7 @@ extension ProfileViewController {
         controller.view.frame = view.bounds
         controller.view.backgroundColor = .clear
         
-        self.addChildViewController(controller)
+        self.addChild(controller)
         view.addSubview(controller.view)
     }
     

@@ -98,10 +98,6 @@ class UserProfileViewController: InteractiveViewController {
         
     }
     
-    override func prefersHomeIndicatorAutoHidden() -> Bool {
-        return true
-    }
-    
     @objc func didTapContactsButton() {
         print("contacts")
         contactsButton.animation = "pop"

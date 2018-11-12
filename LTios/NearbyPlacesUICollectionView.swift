@@ -32,9 +32,9 @@ class NearbyPlacesUICollectionView: UICollectionView {
     
     self.register(NearbyPlacesUICollectionViewCell.self, forCellWithReuseIdentifier: "nearbyPlaceCell")
     
-    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_0")
-    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_1")
-    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_2")
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_0")
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_1")
+    register(NearbyPlacesHeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "NearbyPlaceHeader_2")
   }
 }
 

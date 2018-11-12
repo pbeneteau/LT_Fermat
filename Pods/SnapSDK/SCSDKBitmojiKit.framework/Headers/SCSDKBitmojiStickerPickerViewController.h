@@ -28,6 +28,6 @@
                                  bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
 - (nonnull instancetype)initWithCoder:(nullable NSCoder *)aDecoder NS_UNAVAILABLE;
 
-- (void)setFriendUserId:(nonnull NSString *)friendUserId;
+- (void)setFriendUserId:(nullable NSString *)friendUserId;
 
 @end

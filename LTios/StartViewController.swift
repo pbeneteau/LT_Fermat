@@ -54,7 +54,7 @@ class StartViewController: ModalViewViewController {
         view.addSubview(flagArrow)
         view.addSubview(nextButton)
         
-        addChildViewController(countryVC)
+        addChild(countryVC)
         view.addSubview(countryVC.view)
         
         phoneTextField.delegate = self
@@ -70,7 +70,7 @@ class StartViewController: ModalViewViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(closeCountryView), name: NSNotification.Name(rawValue: "closeCountryView"), object: nil)
         if !worldIsAnimating {
             animateWorld()
@@ -145,7 +145,7 @@ class StartViewController: ModalViewViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardSize.height
             enableTextField(keyboardHeight: keyboardHeight)
         }
@@ -212,7 +212,7 @@ extension StartViewController: UITextFieldDelegate {
     func initTextField(string: String) {
         let protectedRange = NSMakeRange(0, countryCodeString.count)
         let attributedString = NSMutableAttributedString(string: countryCodeString)
-        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), range: protectedRange)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), range: protectedRange)
         attributedString.append(NSAttributedString(string: string))
         phoneTextField.attributedText = attributedString
     }

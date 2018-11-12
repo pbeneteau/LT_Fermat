@@ -153,7 +153,7 @@ extension InteractiveViewController: UIGestureRecognizerDelegate {
                 didPan(yMovement)
             }
             
-            if sender.state == UIGestureRecognizerState.ended {
+            if sender.state == UIGestureRecognizer.State.ended {
                 let velocity = sender.velocity(in: self.view)
                 
                 if velocity.y < -100 && allowedDismissDirection != .bottom {

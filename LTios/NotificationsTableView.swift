@@ -16,7 +16,7 @@ class NotificationsTableView: UITableViewController {
         }
     }
 
-    override init(style: UITableViewStyle) {
+    override init(style: UITableView.Style) {
         super.init(style: style)
         
         view.backgroundColor = .clear

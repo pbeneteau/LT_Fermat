@@ -238,7 +238,7 @@ extension MainViewController {
         let alert = UIAlertController(title: "Turn on Location Service", message: "To use location tracking feature of the app, please turn on the location service from the Settings app.", preferredStyle: .alert)
         
         let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-            let settingsUrl = URL(string: UIApplicationOpenSettingsURLString)
+            let settingsUrl = URL(string: UIApplication.openSettingsURLString)
             if let url = settingsUrl {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

@@ -40,7 +40,7 @@ class NotificationsTableViewCell: UITableViewCell {
     var actionButton = ActionButton()
 
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
@@ -70,7 +70,7 @@ class NotificationsTableViewCell: UITableViewCell {
     @objc func didTouchActionButton() {
         
         print(actionButton.state)
-        print(UIControlState.highlighted)
+        print(UIControl.State.highlighted)
         
         if actionButton.isActive {
             actionButton.setNormalState()

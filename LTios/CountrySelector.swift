@@ -23,7 +23,7 @@ class CountryTableViewCell: UITableViewCell {
   let countryFlag = UIImageView()
   let check = UIImageView(image: #imageLiteral(resourceName: "check"))
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     
@@ -94,7 +94,7 @@ class CountrySelectorTableView: UITableView {
     commonInit()
   }
   
-  override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
     super.init(frame: frame, style: style)
     commonInit()
   }

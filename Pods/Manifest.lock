@@ -5,52 +5,52 @@ PODS:
   - BoringSSL/Implementation (10.0.6):
     - BoringSSL/Interface (= 10.0.6)
   - BoringSSL/Interface (10.0.6)
-  - CryptoSwift (0.12.0)
-  - Firebase/Auth (5.8.1):
+  - CryptoSwift (0.13.0)
+  - Firebase/Auth (5.12.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.0.4)
-  - Firebase/CoreOnly (5.8.1):
-    - FirebaseCore (= 5.1.3)
-  - Firebase/Database (5.8.1):
+    - FirebaseAuth (= 5.0.5)
+  - Firebase/CoreOnly (5.12.0):
+    - FirebaseCore (= 5.1.7)
+  - Firebase/Database (5.12.0):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.0.3)
-  - Firebase/Firestore (5.8.1):
+  - Firebase/Firestore (5.12.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (= 0.13.3)
-  - Firebase/Storage (5.8.1):
+    - FirebaseFirestore (= 0.14.0)
+  - Firebase/Storage (5.12.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (= 3.0.2)
-  - FirebaseAuth (5.0.4):
+    - FirebaseStorage (= 3.0.3)
+  - FirebaseAuth (5.0.5):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.0)
+    - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.1.3):
+  - FirebaseCore (5.1.7):
     - GoogleUtilities/Logger (~> 5.2)
   - FirebaseDatabase (5.0.3):
     - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
-  - FirebaseFirestore (0.13.3):
+  - FirebaseFirestore (0.14.0):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.0)
-    - FirebaseFirestore/abseil-cpp (= 0.13.3)
+    - FirebaseCore (~> 5.1)
+    - FirebaseFirestore/abseil-cpp (= 0.14.0)
     - "gRPC-C++ (~> 0.0.3)"
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (0.13.3):
+  - FirebaseFirestore/abseil-cpp (0.14.0):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.0)
+    - FirebaseCore (~> 5.1)
     - "gRPC-C++ (~> 0.0.3)"
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
-  - FirebaseStorage (3.0.2):
+  - FirebaseStorage (3.0.3):
     - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 5.0)
+    - FirebaseCore (~> 5.1)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleMaps (2.7.0):
     - GoogleMaps/Maps (= 2.7.0)
@@ -59,8 +59,8 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.7.0):
     - GoogleMaps/Base (= 2.7.0)
-  - GoogleUtilities/Environment (5.3.0)
-  - GoogleUtilities/Logger (5.3.0):
+  - GoogleUtilities/Environment (5.3.4)
+  - GoogleUtilities/Logger (5.3.4):
     - GoogleUtilities/Environment
   - gRPC (1.14.0):
     - gRPC-RxLibrary (= 1.14.0)
@@ -94,39 +94,39 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - leveldb-library (1.20)
   - MarqueeLabel/Swift (3.2.0)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - NotificationBannerSwift (1.6.3):
-    - MarqueeLabel/Swift
-    - SnapKit (~> 4.0)
-  - PhoneNumberKit (2.1.0):
-    - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
-    - PhoneNumberKit/UIKit (= 2.1.0)
-  - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
-  - PhoneNumberKit/UIKit (2.1.0):
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - NotificationBannerSwift (1.8.0):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.0.1)
+  - PhoneNumberKit (2.5.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
+    - PhoneNumberKit/UIKit (= 2.5.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.5.0)
+  - PhoneNumberKit/UIKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - PINCache (2.3)
   - PINOperation (1.1.1)
   - Protobuf (3.6.1)
-  - ReachabilitySwift (4.2.1)
+  - ReachabilitySwift (4.3.0)
   - SCLAlertView (0.8)
   - SnapKit (4.0.1)
-  - SnapSDK (1.1.2):
-    - SnapSDK/SCSDKBitmojiKit (= 1.1.2)
-    - SnapSDK/SCSDKCreativeKit (= 1.1.2)
-    - SnapSDK/SCSDKLoginKit (= 1.1.2)
-  - SnapSDK/SCSDKBitmojiKit (1.1.2):
+  - SnapSDK (1.1.4):
+    - SnapSDK/SCSDKBitmojiKit (= 1.1.4)
+    - SnapSDK/SCSDKCreativeKit (= 1.1.4)
+    - SnapSDK/SCSDKLoginKit (= 1.1.4)
+  - SnapSDK/SCSDKBitmojiKit (1.1.4):
     - PINCache (~> 2.3)
     - PINOperation (~> 1.1)
-  - SnapSDK/SCSDKCreativeKit (1.1.2):
+  - SnapSDK/SCSDKCreativeKit (1.1.4):
     - YYImage (~> 1.0.4)
     - YYImage/WebP
-  - SnapSDK/SCSDKLoginKit (1.1.2)
+  - SnapSDK/SCSDKLoginKit (1.1.4)
   - Spring (1.0.5)
-  - ViewAnimator (2.1.2)
+  - ViewAnimator (2.2.0)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
   - YYImage/Core (1.0.4)
@@ -142,7 +142,7 @@ DEPENDENCIES:
   - GoogleMaps
   - GooglePlaces
   - MarqueeLabel/Swift
-  - NotificationBannerSwift (= 1.6.3)
+  - NotificationBannerSwift
   - PhoneNumberKit
   - PINCache
   - ReachabilitySwift
@@ -190,17 +190,17 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
-  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
-  Firebase: a870ed114d769b424021a0c8ddb0c86c3250a0c5
-  FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
+  CryptoSwift: 16e78bebf567bad1c87b2d58f6547f25b74c31aa
+  Firebase: 9190018e296139d938b99521cde0c15a6e8d2946
+  FirebaseAuth: 9299ab178271bec7426967b05b2718bb6fc31f17
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 27bd80e5bfaaf9552a1f5cacb4c7e8bb925bab22
+  FirebaseCore: 027d350adc039aa5483357c6f56556f117c5170e
   FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
-  FirebaseFirestore: c9ec5660228f97ed10782d72b0498449af07256d
-  FirebaseStorage: fd82e5e5c474897e19972b34b22ac0f589dce04e
+  FirebaseFirestore: 6dc97a9685c421767cc96bf644fc963166cddbe7
+  FirebaseStorage: 3d22c041370593e639fba013d1eb698a8dae2881
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
-  GoogleUtilities: 760ccb53b7c7f40f9c02d8c241f76f841a7a6162
+  GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
   gRPC: 9d4c549f37c7cef22478634bac7a0405b6e3dbfb
   "gRPC-C++": ee0b01db3122f0b6c2be28b5b11039f62fa15fe6
   gRPC-Core: f4836515817c0eb479aeeb9cc27c91c4ba62a9f6
@@ -209,20 +209,20 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NotificationBannerSwift: b231e4c3244848ef300e1c53ce027b9756b9b06f
-  PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  NotificationBannerSwift: 49fc4be7fabada55b189b50e72184c92edd5f7f7
+  PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  ReachabilitySwift: 35720ffea59c1c76d15f885be77fd33e33985427
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SnapSDK: b2cfdf8224a7b3ddf42b2d3389356b80c23c3c0f
+  SnapSDK: 11f4114080ec69be25e204a379674072151ceb16
   Spring: 17901566c8ecf3a1327902b940406c64512f9bb1
-  ViewAnimator: 20df9a24a076c6ee78b77a4dbf1943808c94954e
+  ViewAnimator: a849844cc3698620e1a562b510ed0c28aeafcdc5
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 2941aa93e2aaca44676d0becf588d56e06005015
+PODFILE CHECKSUM: 6772f796bc41921eed5651ccc83a9993b1f6ccb7
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.5.3

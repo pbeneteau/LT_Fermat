@@ -52,7 +52,7 @@ class SettingsCell: UITableViewCell {
             segueIcon.isHidden = false
         }
         
-        switchButton.addTarget(self, action: #selector(updateSettings), for: UIControlEvents.valueChanged)
+        switchButton.addTarget(self, action: #selector(updateSettings), for: UIControl.Event.valueChanged)
     }
     
     override func layoutSubviews() {

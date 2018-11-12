@@ -310,7 +310,7 @@ class RegisterButton: UIButton {
         setBackgroundColor(color: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), forState: .highlighted)
         let numberAsString = "REGISTER"
         
-        let attributes = [NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 15.0)!, NSAttributedStringKey.foregroundColor: UIColor.CustomColor.blue]
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 15.0)!, NSAttributedString.Key.foregroundColor: UIColor.CustomColor.blue]
         
         setAttributedTitle(NSAttributedString(string: numberAsString, attributes: attributes), for: .normal)
         
@@ -383,7 +383,7 @@ class FirstImportButton: UIButton {
         clipsToBounds = true
         setBackgroundColor(color: UIColor(red:0.93, green:0.94, blue:0.95, alpha:1.0), forState: .highlighted)
         let numberAsString = "IMPORT"
-        let attributes = [NSAttributedStringKey.font: UIFont(name: "Roboto-Regular", size: 15.0)!, NSAttributedStringKey.foregroundColor: UIColor.CustomColor.blue]
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 15.0)!, NSAttributedString.Key.foregroundColor: UIColor.CustomColor.blue]
         
         setAttributedTitle(NSAttributedString(string: numberAsString, attributes: attributes), for: .normal)
     }

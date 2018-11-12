@@ -275,7 +275,7 @@ extension NearbyPlacesViewController: UICollectionViewDelegateFlowLayout, UIColl
                         at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "NearbyPlaceHeader_\(indexPath.section)", for: indexPath) as! NearbyPlacesHeaderCollectionReusableView
             

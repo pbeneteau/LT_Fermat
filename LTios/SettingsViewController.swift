@@ -94,7 +94,7 @@ class SettingsViewController: ModalViewViewController {
             self.email.alpha = 0
             self.tableView.alpha = 0
         }, completion: { end in
-            self.removeFromParentViewController()
+            self.removeFromParent()
             self.view.removeFromSuperview()
             self.notifyDidTapCloseButton()
         })

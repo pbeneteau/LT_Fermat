@@ -14,8 +14,8 @@ class ContactsTableView: UITableView {
     super.init(coder: aDecoder)!
   }
   
-  override init(frame: CGRect, style: UITableViewStyle) {
-    let style = UITableViewStyle.plain
+    override init(frame: CGRect, style: UITableView.Style) {
+        let style = UITableView.Style.plain
     super.init(frame: frame, style: style)
     
     showsVerticalScrollIndicator = false

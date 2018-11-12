@@ -68,17 +68,17 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
         view.addSubview(horizontalScrollView)
         
-        addChildViewController(mainVC)
+        addChild(mainVC)
         horizontalScrollView.addSubview(mainVC.view)
-        mainVC.didMove(toParentViewController: self)
+        mainVC.didMove(toParent: self)
         
-        addChildViewController(nearbyPlacesVC)
+        addChild(nearbyPlacesVC)
         horizontalScrollView.addSubview(nearbyPlacesVC.view)
-        nearbyPlacesVC.didMove(toParentViewController: self)
+        nearbyPlacesVC.didMove(toParent: self)
         
-        addChildViewController(profileVC)
+        addChild(profileVC)
         horizontalScrollView.addSubview(profileVC.view)
-        profileVC.didMove(toParentViewController: self)
+        profileVC.didMove(toParent: self)
         
         horizontalScrollView.contentOffset = CGPoint(x: view.frame.size.width, y: 0)
         horizontalScrollView.contentSize = CGSize(width: view.frame.size.width * 3, height: view.frame.size.height)
@@ -122,10 +122,6 @@ class MenuViewController: UIViewController, UIScrollViewDelegate {
         
         view.setNeedsUpdateConstraints()
         
-    }
-    
-    override func prefersHomeIndicatorAutoHidden() -> Bool {
-        return true
     }
     
     override func viewDidLayoutSubviews() {

@@ -143,7 +143,7 @@ class MainUser: GlobalUser {
     
     private func uploadPhoto() {
         if let image = photo {
-            guard let imageData = UIImageJPEGRepresentation(image, 1) else { return }
+            guard let imageData = image.jpegData(compressionQuality: 1) else { return }
             StorageService.shared.uploadUserPicture(imageData: imageData, uid: uid)
         }
     }
