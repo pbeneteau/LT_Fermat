@@ -46,7 +46,7 @@ class ProfileViewController: ModalViewViewController {
     
     var profileShadowBackground = GradientView()
     var menuShadowBackground = GradientView()
-
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -63,7 +63,7 @@ class ProfileViewController: ModalViewViewController {
         notificationsVC = NotificationsTableView(style: .plain)
         
         backgroundView.backgroundColor = Color.viewControllerBackground
-        containerView.backgroundColor = .gray //Color.viewControllerBackground
+        containerView.backgroundColor = Color.viewControllerBackground
         scrollView.backgroundColor = Color.viewControllerBackground
         
         profilePictureView.contentMode = .scaleAspectFill
@@ -110,7 +110,7 @@ class ProfileViewController: ModalViewViewController {
         containerView.addSubview(profilePictureView)
         
         addUserNotificationsTableView()
-
+        
         addContactsVC()
         
         addNotificationsObservers()
@@ -129,7 +129,7 @@ class ProfileViewController: ModalViewViewController {
     }
     
     func addContactsVC() {
-                
+        
         addChild(contactsVC)
         scrollView.addSubview(contactsVC.view)
     }
@@ -236,7 +236,7 @@ class ProfileViewController: ModalViewViewController {
             self.notificationsVC.view.layoutSubviews()
             
             UIView.animate(withDuration: 0.4, delay: 0, options: [.curveEaseInOut], animations: {
-
+                
                 self.notificationsLabel.alpha = 1
                 self.notificationsBlock.alpha = 1
             })
@@ -252,39 +252,40 @@ extension ProfileViewController: UIScrollViewDelegate {
         
         if scrollView.contentOffset.y <= view.frame.height * 0.4 && scrollView.contentOffset.y >= 30 {
             
-            let multiplicator = (Float(scrollView.contentOffset.y) / Float(view.frame.height) * 4)
+            let multiplicator = (Float(scrollView.contentOffset.y * 2) / Float(view.frame.height))
             
-            containerView.snp.remakeConstraints { (make) -> Void in
-                make.width.equalTo(view)
-                make.height.equalTo(view).multipliedBy(0.3).offset(-160 * multiplicator)
-                make.centerX.equalTo(view)
-                make.top.equalTo(view).offset(90)
+            if multiplicator <= 1 {
+                
+                containerView.snp.remakeConstraints { (make) -> Void in
+                    make.width.equalTo(view)
+                    make.height.equalTo(view).multipliedBy(0.3).offset(-160 * multiplicator)
+                    make.centerX.equalTo(view)
+                    make.top.equalTo(view).offset(90)
+                }
+                
+                profilePictureView.snp.makeConstraints { (make) -> Void in
+                    make.height.equalTo(containerView).multipliedBy(0.4)
+                    make.width.equalTo(profilePictureView.snp.height)
+                    make.centerX.equalTo(containerView)
+                    make.top.equalTo(containerView).offset(40 - 25 * multiplicator)
+                }
+                
+                fullName.snp.makeConstraints { (make) -> Void in
+                    make.width.equalTo(containerView).multipliedBy(0.7)
+                    make.height.equalTo(25)
+                    make.centerX.equalTo(containerView)
+                    make.top.equalTo(profilePictureView.snp.bottom).offset(15 - 10 * multiplicator)
+                }
+                
+                fullName.font = UIFont(name: "Roboto-Medium", size: CGFloat(25 - 10 * multiplicator))
+                
+                profileShadowBackground.alpha = CGFloat(multiplicator / 12)
+                
+                publicName.alpha = CGFloat(1 - multiplicator * 2)
+                lineView.alpha = CGFloat(1 - multiplicator * 2)
+                
+                view.layoutSubviews()
             }
-            
-            profilePictureView.snp.makeConstraints { (make) -> Void in
-                make.height.equalTo(containerView).multipliedBy(0.4)
-                make.width.equalTo(profilePictureView.snp.height)
-                make.centerX.equalTo(containerView)
-                make.top.equalTo(containerView).offset(40 - 25 * multiplicator)
-            }
-            
-            fullName.snp.makeConstraints { (make) -> Void in
-                make.width.equalTo(containerView).multipliedBy(0.7)
-                make.height.equalTo(25)
-                make.centerX.equalTo(containerView)
-                make.top.equalTo(profilePictureView.snp.bottom).offset(15 - 10 * multiplicator)
-            }
-            
-            fullName.font = UIFont(name: "Roboto-Medium", size: CGFloat(25 - 10 * multiplicator))
-            
-            profileShadowBackground.alpha = CGFloat(multiplicator / 10)
-            
-            print(multiplicator)
-            
-            publicName.alpha = CGFloat(1 - multiplicator * 2)
-            lineView.alpha = CGFloat(1 - multiplicator * 2)
-            
-            view.layoutSubviews()
         }
     }
     
@@ -301,7 +302,7 @@ extension ProfileViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.didUpdateUserProfile), name: Notification.Name(rawValue:"didUpdateUserInformation"), object: nil)
         
-         NotificationCenter.default.addObserver(self, selector: #selector(self.didUpdateUserNotifications(_:)), name: Notification.Name(rawValue:"didUpdateUserNotifications"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didUpdateUserNotifications(_:)), name: Notification.Name(rawValue:"didUpdateUserNotifications"), object: nil)
         
     }
 }
@@ -393,7 +394,7 @@ extension ProfileViewController {
             make.width.equalTo(view)
             make.height.equalTo(contactsVC.getTableViewContentOffset())
             make.centerX.equalTo(view)
-            make.top.equalTo(containerView.snp.bottom).offset(-10)
+            make.top.equalTo(containerView.snp.bottom)
         }
         
         notificationsLabel.snp.makeConstraints { (make) -> Void in
@@ -463,6 +464,7 @@ extension ProfileViewController {
     }
     
 }
+
 
 
 
