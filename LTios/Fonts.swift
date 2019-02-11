@@ -12,7 +12,7 @@ import UIKit
 struct LTFont {
     
     struct Menu {
-        static let title = UIFont(name: "Avenir-Medium", size: 23)
+        static let title = UIFont(name: "Avenir-Black", size: 27)
     }
     
     static let button = UIFont(name: "Avenir-Book", size: 13)
@@ -20,7 +20,7 @@ struct LTFont {
     
     struct NearbyPlaces {
         
-        struct TableView {
+        struct NearbyPlacesCollectionView {
             
             static let headerTitle = UIFont(name: "Avenir-Book", size: 26)
             
@@ -30,6 +30,10 @@ struct LTFont {
                 static let distance = UIFont(name: "Avenir-Book", size: 16)
                 static let people = UIFont(name: "Avenir-Black", size: 20)
             }
+        }
+        
+        struct FilterCollectionView {
+            static let label = UIFont(name: "Avenir-Book", size: 17)
         }
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasswordVerificationViewController: ModalViewViewController {
+class PasswordVerificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

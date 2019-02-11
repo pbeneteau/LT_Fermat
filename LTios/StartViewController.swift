@@ -11,7 +11,7 @@ import FirebaseAuth
 import SnapKit
 import PhoneNumberKit
 
-class StartViewController: ModalViewViewController {
+class StartViewController: UIViewController {
     
     var didSetupConstraints = false
     var worldIsAnimating = false
@@ -91,8 +91,6 @@ class StartViewController: ModalViewViewController {
             }
             else if let user = authResult?.user {
                 //DatabaseService.shared.createNewUserInDatabase(uid: user.uid, firstname: firstname, lastname: lastname)
-                let vc = MenuViewController()
-                self.present(vc, animated: true, completion: nil)
             }
             // [END_EXCLUDE]
         }

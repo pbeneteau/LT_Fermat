@@ -19,7 +19,7 @@ enum InteractiveMaskType : UInt {
     case clear
 }
 
-class InteractiveViewController: ModalViewViewController {
+class InteractiveViewController: UIViewController {
 
     var allowedDismissDirection: dismissDirection = .both
     var directionLock = false

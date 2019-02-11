@@ -56,15 +56,16 @@ struct Color {
     
     struct NearbyPlaces {
         
-        struct Distance {
+        struct FilterCollectionView {
+            
+            struct Background {
+                static let selected = UIColor.black
+                static let normal = UIColor.white
+            }
             
             struct Label {
-                static let selected = mainAppColor
-                static let normal = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
-            }
-            struct ProgressView {
-                static let progress = mainAppColor
-                static let background = UIColor(red:0.88, green:0.88, blue:0.88, alpha:1.0)
+                static let selected = UIColor.white
+                static let normal = UIColor.lightGray
             }
         }
     }
@@ -73,9 +74,16 @@ struct Color {
 
     static let roundedBlockView = UIColor.white
     
-    static let viewControllerBackground = UIColor.white
+    static let viewControllerBackground = UIColor(red:0.95, green:0.94, blue:0.95, alpha:1.0)
+    
+    static let menuContainerView = UIColor.white
     
     static let blockBackground = UIColor.white
+    
+    struct mainMenu {
+        static let background = UIColor.white
+        static let tint = UIColor.black
+    }
     
     struct AlertBanner {
         

@@ -11,7 +11,7 @@ import FirebaseAuth
 import Reachability
 import ViewAnimator
 
-class MainViewController: ModalViewViewController {
+class MainViewController: UIViewController {
     
     private var didSetupConstraints = false
     
@@ -99,7 +99,7 @@ extension MainViewController {
     
     func addDataToTableView(newInterestingUsers: [InterestingUser]) {
         
-        MenuInstance.stopLoadingAnimation()
+        //MenuInstance.stopLoadingAnimation()
         
         if newInterestingUsers.count > 0 {
             self.NearbyInterestingUsers = newInterestingUsers
@@ -117,7 +117,7 @@ extension MainViewController {
     
     @objc func didUpdateLocation(_ notification: NSNotification) {
         
-        MenuInstance.updatePlaceName(name: mainUserInstance.place?.name ?? "")
+        //MenuInstance.updatePlaceName(name: mainUserInstance.place?.name ?? "")
         DatabaseService.shared.listenForNearbyUsers()
     }
     
@@ -125,10 +125,10 @@ extension MainViewController {
         
         if !mainUserInstance.settings.getStateFromCode("ghost") {
             removeAlert()
-            MenuInstance.privacyDidChange(ghost: false)
+            //MenuInstance.privacyDidChange(ghost: false)
         } else {
             showAlert(alert: .privacy)
-            MenuInstance.privacyDidChange(ghost: true)
+            //MenuInstance.privacyDidChange(ghost: true)
         }
     }
 }
@@ -255,13 +255,13 @@ extension MainViewController {
         
         switch reachability.connection {
         case .wifi:
-            MenuInstance.reachabilityDidChange(reachable: true)
+            //MenuInstance.reachabilityDidChange(reachable: true)
             removeAlert()
         case .cellular:
-            MenuInstance.reachabilityDidChange(reachable: true)
+            //MenuInstance.reachabilityDidChange(reachable: true)
             removeAlert()
         case .none:
-            MenuInstance.reachabilityDidChange(reachable: false)
+            //MenuInstance.reachabilityDidChange(reachable: false)
             showAlert(alert: .reachability)
         }
     }
@@ -331,9 +331,9 @@ extension MainViewController {
     
     func showAlertBanner(_ type: BannerType) {
         
-        if (MenuInstance.currentController) != 0 {
-            AlertBanner.showBanner(type)
-        }
+        //if (MenuInstance.currentController) != 0 {
+            //AlertBanner.showBanner(type)
+//}
     }
     
 }

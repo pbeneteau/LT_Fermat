@@ -27,11 +27,12 @@ target 'LTios' do
   pod 'SnapSDK'
   
   # View
-  pod 'Spring'
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git' # pod 'Spring'
   pod 'ViewAnimator'
   pod 'SCLAlertView'
-  pod 'NotificationBannerSwift', 
+  pod 'NotificationBannerSwift'
   pod 'MarqueeLabel/Swift'
+  pod 'SwipeMenuViewController'
   #pod 'TextFieldEffects'
   
   # Constraints

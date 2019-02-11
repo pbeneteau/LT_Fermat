@@ -26,7 +26,6 @@ class DatabaseService {
         db = Firestore.firestore()
         
         settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true        
         db.settings = settings
     }
     

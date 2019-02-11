@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstContactImportViewController: ModalViewViewController {
+class FirstContactImportViewController: UIViewController {
   
   var didSetupConstraints = false
   
@@ -125,8 +125,7 @@ class FirstContactImportViewController: ModalViewViewController {
     }
     let when = DispatchTime.now() + 1
     DispatchQueue.main.asyncAfter(deadline: when) {
-      let menuVC = MenuViewController()
-      self.present(menuVC, animated: false, completion: nil)
+      //self.present(menuVC, animated: false, completion: nil)
     }
   }
   

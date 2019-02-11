@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: ModalViewViewController {
+class SettingsViewController: UIViewController {
     
     private var profilePictureView = RoundImageView()
     

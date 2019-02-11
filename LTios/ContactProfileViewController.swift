@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeMenuViewController
 
-class ContactProfileViewController: ModalViewViewController {
+class ContactProfileViewController: SwipeMenuViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

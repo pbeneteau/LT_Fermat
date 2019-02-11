@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhoneVerificationViewController: ModalViewViewController {
+class PhoneVerificationViewController: UIViewController {
     
     var didSetupConstraints = false
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterationFormViewController: ModalViewViewController {
+class RegisterationFormViewController: UIViewController {
   
   var didSetupConstraints = false
   

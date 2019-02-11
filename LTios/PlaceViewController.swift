@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlaceViewController: ModalViewViewController {
+class PlaceViewController: UIViewController {
     
     private var didSetupConstraints = false
     

@@ -116,6 +116,9 @@ public class BaseNotificationBanner: UIView {
     /// A view that helps the spring animation look nice when the banner appears
     internal var spacerView: UIView!
     
+    /// The default offset for spacerView top or bottom
+    internal var spacerViewDefaultOffset: CGFloat = 10.0
+
     /// The default padding between edges and views
     internal var padding: CGFloat = 15.0
     
@@ -134,8 +137,17 @@ public class BaseNotificationBanner: UIView {
     /// The position the notification banner should slide in from
     private(set) var bannerPosition: BannerPosition!
     
+    /// The notification banner sides edges insets from superview. If presented - spacerView color will be transparent
+    internal(set) var bannerEdgeInsets: UIEdgeInsets? = nil {
+        didSet {
+            if bannerEdgeInsets != nil {
+                spacerView.backgroundColor = .clear
+            }
+        }
+    }
+
     /// Object that stores the start and end frames for the notification banner based on the provided banner position
-    private var bannerPositionFrame: BannerPositionFrame!
+    internal var bannerPositionFrame: BannerPositionFrame!
     
     /// The user info that gets passed to each notification
     private var notificationUserInfo: [String: BaseNotificationBanner] {
@@ -177,21 +189,20 @@ public class BaseNotificationBanner: UIView {
     
     deinit {
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                                  name: UIDevice.orientationDidChangeNotification,
                                                   object: nil)
     }
     
     /**
         Creates the proper banner constraints based on the desired banner position
      */
-    
     private func createBannerConstraints(for bannerPosition: BannerPosition) {
         
         spacerView.snp.remakeConstraints { (make) in
             if bannerPosition == .top {
-                make.top.equalToSuperview().offset(-10)
+                make.top.equalToSuperview().offset(-spacerViewDefaultOffset)
             } else {
-                make.bottom.equalToSuperview().offset(10)
+                make.bottom.equalToSuperview().offset(spacerViewDefaultOffset)
             }
             make.left.equalToSuperview()
             make.right.equalToSuperview()
@@ -216,11 +227,8 @@ public class BaseNotificationBanner: UIView {
     /**
          Updates the spacer view height. Specifically used for orientation changes.
      */
-    
     private func updateSpacerViewHeight(make: ConstraintMaker? = nil) {
-        let finalHeight = NotificationBannerUtilities.isNotchFeaturedIPhone()
-            && UIApplication.shared.statusBarOrientation.isPortrait
-            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
+        let finalHeight = spacerViewHeight()
         if let make = make {
             make.height.equalTo(finalHeight)
         } else {
@@ -228,6 +236,12 @@ public class BaseNotificationBanner: UIView {
                 make.height.equalTo(finalHeight)
             })
         }
+    }
+    
+    internal func spacerViewHeight() -> CGFloat {
+        return NotificationBannerUtilities.isNotchFeaturedIPhone()
+            && UIApplication.shared.statusBarOrientation.isPortrait
+            && (parentViewController?.navigationController?.isNavigationBarHidden ?? true) ? 40.0 : 10.0
     }
     
     /**
@@ -257,7 +271,7 @@ public class BaseNotificationBanner: UIView {
             
             self.bannerQueue.showNext(callback: { (isEmpty) in
                 if isEmpty || self.statusBarShouldBeShown() {
-                    self.appWindow.windowLevel = UIWindowLevelNormal
+                    self.appWindow.windowLevel = UIWindow.Level.normal
                 }
             })
         }
@@ -315,15 +329,16 @@ public class BaseNotificationBanner: UIView {
             bannerPositionFrame = BannerPositionFrame(bannerPosition: bannerPosition,
                                                       bannerWidth: appWindow.frame.width,
                                                       bannerHeight: bannerHeight,
-                                                      maxY: maximumYPosition())
+                                                      maxY: maximumYPosition(),
+                                                      edgeInsets: bannerEdgeInsets)
         }
         
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                                  name: UIDevice.orientationDidChangeNotification,
                                                   object: nil)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(onOrientationChanged),
-                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               name: UIDevice.orientationDidChangeNotification,
                                                object: nil)
         
         if placeOnQueue {
@@ -334,14 +349,14 @@ public class BaseNotificationBanner: UIView {
             if let parentViewController = parentViewController {
                 parentViewController.view.addSubview(self)
                 if statusBarShouldBeShown() {
-                    appWindow.windowLevel = UIWindowLevelNormal
+                    appWindow.windowLevel = UIWindow.Level.normal
                 }
             } else {
                 appWindow.addSubview(self)
                 if statusBarShouldBeShown() && !(parentViewController == nil && bannerPosition == .top) {
-                    appWindow.windowLevel = UIWindowLevelNormal
+                    appWindow.windowLevel = UIWindow.Level.normal
                 } else {
-                    appWindow.windowLevel = UIWindowLevelStatusBar + 1
+                    appWindow.windowLevel = UIWindow.Level.statusBar + 1
                 }
             }
             
@@ -397,6 +412,23 @@ public class BaseNotificationBanner: UIView {
             isDisplaying = true
         }
     }
+ 
+    /**
+        Resets a notification banner's elapsed duration to zero.
+    */
+    public func resetDuration() {
+        if autoDismiss {
+             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(dismiss), object: nil)
+             self.perform(#selector(dismiss), with: nil, afterDelay: self.duration)
+        }
+    }
+    
+    /**
+        Update banner height, it's necessary after banner labels font update
+     */
+    internal func updateBannerHeight() {
+        onOrientationChanged()
+    }
     
     /**
         Changes the frame of the notification banner when the orientation of the device changes
@@ -404,16 +436,19 @@ public class BaseNotificationBanner: UIView {
     @objc private dynamic func onOrientationChanged() {
         updateSpacerViewHeight()
         
-        let newY = (bannerPosition == .top) ? (frame.origin.y) : (appWindow.frame.height - bannerHeight)
+        let edgeInsets = bannerEdgeInsets ?? .zero
+
+        let newY = (bannerPosition == .top) ? (frame.origin.y) : (appWindow.frame.height - bannerHeight + edgeInsets.top - edgeInsets.bottom)
         frame = CGRect(x: frame.origin.x,
                        y: newY,
-                       width: appWindow.frame.width,
+                       width: appWindow.frame.width - edgeInsets.left - edgeInsets.right,
                        height: bannerHeight)
     
         bannerPositionFrame = BannerPositionFrame(bannerPosition: bannerPosition,
                                                   bannerWidth: appWindow.frame.width,
                                                   bannerHeight: bannerHeight,
-                                                  maxY: maximumYPosition())
+                                                  maxY: maximumYPosition(),
+                                                  edgeInsets: bannerEdgeInsets)
     }
     
     /**

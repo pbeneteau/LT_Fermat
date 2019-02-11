@@ -52,7 +52,6 @@ class MainUser: GlobalUser {
         super.init()
         
         // Start menu loading animation
-        MenuInstance.startLoadingAnimation()
         
         // Firebase login
         authHandle = Auth.auth().addStateDidChangeListener() { (auth, user) in

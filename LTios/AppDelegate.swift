@@ -33,21 +33,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey("AIzaSyCP5JVVbjQB_RrP5q-A67cjYta9RU3Zp5A")
         GMSPlacesClient.openSourceLicenseInfo()
     
-    
-        let navigationVC = CustomNavigationController(rootViewController: MenuInstance)
-        navigationVC.setNavigationBarHidden(true, animated: false)
+
+//        let frame = UIScreen.main.bounds
+//        window = UIWindow(frame: frame)
+//
+//        if ((Auth.auth().currentUser) != nil) {
+//        } else {
+//            let initialViewController = StartViewController()
+//            self.window?.rootViewController = initialViewController
+//            self.window?.makeKeyAndVisible()
+//        }
+//
         
-        let frame = UIScreen.main.bounds
-        window = UIWindow(frame: frame)
         
-        if ((Auth.auth().currentUser) != nil) {
-            self.window?.rootViewController = navigationVC
-            self.window?.makeKeyAndVisible()
-        } else {
-            let initialViewController = StartViewController()
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-        }
+        // Create UIWindow within the screen boundaries.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+
+        let nav1 = MenuNavigationViewController()
+        nav1.icon = UIImage(named:"profile_icon")!
+
+        let profileVC = LeftContentViewController()
+        nav1.viewControllers = [profileVC]
+
+        let nav2 = MenuNavigationViewController()
+        nav2.icon = UIImage(named:"home_icon")!
+
+        let mainVC = MainViewController()
+        nav2.viewControllers = [mainVC]
+
+        let nav3 = MenuNavigationViewController()
+        nav3.icon = UIImage(named: "nearbyPlaces_icon")!
+
+        let nearbyPlacesVC = NearbyPlacesViewController()
+        nav3.viewControllers = [nearbyPlacesVC]
+
+        let tabs = UITabBarController()
+        tabs.viewControllers = [nav1, nav2, nav3]
+        tabs.tabBar.layer.borderWidth = 0
+        tabs.tabBar.clipsToBounds = true
+        tabs.selectedIndex = 2
+
+        self.window!.rootViewController = tabs;
+        self.window?.makeKeyAndVisible();
         
         return true
     }

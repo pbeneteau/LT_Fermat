@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactsViewController: ModalViewViewController, UITableViewDataSource {
+class ContactsViewController: UIViewController, UITableViewDataSource {
     
     public var tableView = ContactsTableView()
     

@@ -14,10 +14,10 @@ class BluetoothServices: NSObject {
     
     public static var shared = BluetoothServices()
     
-    var visibleDevices = Array<Device>()
-    var cachedDevices = Array<Device>()
-    var cachedPeripheralNames = Dictionary<String, String>()
-    var timer = Timer()
+    static var visibleDevices = Array<Device>()
+    static var cachedDevices = Array<Device>()
+    static var cachedPeripheralNames = Dictionary<String, String>()
+    static var timer = Timer()
     
     var peripheralManager = CBPeripheralManager()
     var centralManager: CBCentralManager?
@@ -28,16 +28,16 @@ class BluetoothServices: NSObject {
         centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
         peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
     }
-
+    
     func scheduledTimerWithTimeInterval() {
         
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.clearPeripherals), userInfo: nil, repeats: true)
+        BluetoothServices.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.clearPeripherals), userInfo: nil, repeats: true)
     }
     
     @objc func clearPeripherals() {
         
-        visibleDevices = cachedDevices
-        cachedDevices.removeAll()
+        BluetoothServices.visibleDevices = BluetoothServices.cachedDevices
+        BluetoothServices.cachedDevices.removeAll()
     }
     
     func updateAdvertisingData() {
@@ -71,11 +71,11 @@ class BluetoothServices: NSObject {
             }
         }
         
-        if (visibleDevices.count > 0) {
+        if (BluetoothServices.visibleDevices.count > 0) {
             
             var uids = [String]()
             
-            for device in visibleDevices {
+            for device in BluetoothServices.visibleDevices {
                 uids.append(device.uid)
             }
             
@@ -103,7 +103,7 @@ extension BluetoothServices: CBPeripheralManagerDelegate {
 }
 
 extension BluetoothServices: CBCentralManagerDelegate {
-
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         
         if (central.state == .poweredOn) {
@@ -114,18 +114,18 @@ extension BluetoothServices: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         
-        var peripheralName = cachedPeripheralNames[peripheral.identifier.description] ?? "unknown"
+        var peripheralName = BluetoothServices.cachedPeripheralNames[peripheral.identifier.description] ?? "unknown"
         
         if let advertisementName = advertisementData[CBAdvertisementDataLocalNameKey] as? String {
             
             peripheralName = advertisementName
-            cachedPeripheralNames[peripheral.identifier.description] = peripheralName
+            BluetoothServices.cachedPeripheralNames[peripheral.identifier.description] = peripheralName
         }
         
         let device = Device(peripheral: peripheral, uid: peripheralName)
         
-        self.addOrUpdatePeripheralList(device: device, list: &visibleDevices)
-        self.addOrUpdatePeripheralList(device: device, list: &cachedDevices)
+        self.addOrUpdatePeripheralList(device: device, list: &BluetoothServices.visibleDevices)
+        self.addOrUpdatePeripheralList(device: device, list: &BluetoothServices.cachedDevices)
     }
 }
 

@@ -24,7 +24,7 @@ class ImageViewWithGradient: UIImageView {
     }
 }
 
-class GradientView: UIView {
+class VerticalGradientView: UIView {
     
     override open class var layerClass: AnyClass {
         return CAGradientLayer.classForCoder()
@@ -41,6 +41,28 @@ class GradientView: UIView {
     func setGradientColors(topColor: UIColor, botColor: UIColor) {
         let gradientLayer = layer as! CAGradientLayer
         gradientLayer.colors = [topColor.cgColor, botColor.cgColor]
+    }
+}
+
+class HorizontalGradientView: UIView {
+    
+    override open class var layerClass: AnyClass {
+        return CAGradientLayer.classForCoder()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func setGradientColors(leftColor: UIColor, rightColor: UIColor) {
+        let gradientLayer = layer as! CAGradientLayer
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.colors = [rightColor.cgColor, leftColor.cgColor]
     }
 }
 

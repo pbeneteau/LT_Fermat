@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CountryViewController: ModalViewViewController {
+class CountryViewController: UIViewController {
     
     var didSetupConstraints = false
     

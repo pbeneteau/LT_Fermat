@@ -16,7 +16,6 @@
 		0029BA641F2FEE1A00C67810 /* CountrySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029BA631F2FEE1A00C67810 /* CountrySelector.swift */; };
 		0029BA661F30A37F00C67810 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0029BA651F30A37F00C67810 /* Extension.swift */; };
 		002D61561F24DB4E00C2768F /* Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002D61551F24DB4E00C2768F /* Variables.swift */; };
-		004288F51F33B591007FD732 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004288F41F33B591007FD732 /* MenuViewController.swift */; };
 		004289411F4AE3B6007FD732 /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004289401F4AE3B6007FD732 /* GlobalUser.swift */; };
 		006AC8591FA3A4DB00AFCCCE /* ContactsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AC8581FA3A4DB00AFCCCE /* ContactsTableView.swift */; };
 		006AC85B1FA3A4F000AFCCCE /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AC85A1FA3A4F000AFCCCE /* ContactsTableViewCell.swift */; };
@@ -48,13 +47,14 @@
 		006BDD071F2F8E34006DEF17 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFB1F2F8E34006DEF17 /* Roboto-Regular.ttf */; };
 		006BDD081F2F8E34006DEF17 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFC1F2F8E34006DEF17 /* Roboto-Thin.ttf */; };
 		006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCFD1F2F8E34006DEF17 /* Roboto-ThinItalic.ttf */; };
-		006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */; };
 		006BDD0C1F2F9613006DEF17 /* CountryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006BDD0B1F2F9613006DEF17 /* CountryViewController.swift */; };
 		00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EBDE9F1F2159A100676E70 /* MainUser.swift */; };
 		00FF14DE1FA7475D00D9F6FB /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14DD1FA7475D00D9F6FB /* Contact.swift */; };
 		00FF14E21FA752E600D9F6FB /* ContactsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14E11FA752E600D9F6FB /* ContactsSearchController.swift */; };
 		00FF14E41FA7537B00D9F6FB /* ContactsSearchbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FF14E31FA7537B00D9F6FB /* ContactsSearchbar.swift */; };
 		117A79360B93C15264F4D4A7 /* Pods_LTiosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */; };
+		380195612202009A009F2EC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 380195602202009A009F2EC3 /* Assets.xcassets */; };
+		3801956522020C72009F2EC3 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3801956422020C72009F2EC3 /* LeftMenuViewController.swift */; };
 		3821518A215F167E00A7BE9A /* NotificationsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38215189215F167E00A7BE9A /* NotificationsTableView.swift */; };
 		3821518C215FEBE300A7BE9A /* NotificationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821518B215FEBE300A7BE9A /* NotificationsTableViewCell.swift */; };
 		38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */; };
@@ -103,10 +103,14 @@
 		38B852882128D21B002EBB18 /* Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B852872128D21B002EBB18 /* Shadows.swift */; };
 		38B8528C2129AE0A002EBB18 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B8528B2129AE09002EBB18 /* Gradients.swift */; };
 		38B8528E2129C2D0002EBB18 /* RoundedBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B8528D2129C2D0002EBB18 /* RoundedBorderButton.swift */; };
+		38C20561220224B600AB9BF0 /* LeftContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C20560220224B600AB9BF0 /* LeftContentViewController.swift */; };
+		38C205632202526200AB9BF0 /* MenuNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C205622202526200AB9BF0 /* MenuNavigationViewController.swift */; };
 		38D0D97721546D7500FAB683 /* BluetoothServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0D97621546D7500FAB683 /* BluetoothServices.swift */; };
 		38D0D97921546E0F00FAB683 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0D97821546E0F00FAB683 /* Constants.swift */; };
 		38D0D97C21546E6F00FAB683 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0D97B21546E6F00FAB683 /* Device.swift */; };
 		38D0D9802156ED7B00FAB683 /* SnapchatLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0D97F2156ED7B00FAB683 /* SnapchatLoginViewController.swift */; };
+		38F6746D22030D41004E28BE /* NearbyPlacesFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F6746C22030D41004E28BE /* NearbyPlacesFilterCollectionViewCell.swift */; };
+		38F67473220311D3004E28BE /* FilterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F67472220311D3004E28BE /* FilterLayout.swift */; };
 		38FEA1BD212C8A7A00561CF4 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FEA1BC212C8A7A00561CF4 /* StorageService.swift */; };
 		98CA6EFB58DD7B6491BEE45C /* Pods_LTiosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D63D386CE37523546D50354D /* Pods_LTiosUITests.framework */; };
 		9A502145D7C38C05BE014890 /* Pods_LTios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ACEF576580160AAA28DC6F2 /* Pods_LTios.framework */; };
@@ -145,7 +149,6 @@
 		0029BA631F2FEE1A00C67810 /* CountrySelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountrySelector.swift; sourceTree = "<group>"; };
 		0029BA651F30A37F00C67810 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		002D61551F24DB4E00C2768F /* Variables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variables.swift; sourceTree = "<group>"; };
-		004288F41F33B591007FD732 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		004289401F4AE3B6007FD732 /* GlobalUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
 		006AC8581FA3A4DB00AFCCCE /* ContactsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableView.swift; sourceTree = "<group>"; };
 		006AC85A1FA3A4F000AFCCCE /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
@@ -165,7 +168,6 @@
 		006BDCE51F2F8A09006DEF17 /* Scanning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scanning.swift; sourceTree = "<group>"; };
 		006BDCE71F2F8A0F006DEF17 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		006BDCEB1F2F8A25006DEF17 /* NearbyPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPlace.swift; sourceTree = "<group>"; };
-		006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		006BDCF21F2F8E34006DEF17 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		006BDCF31F2F8E34006DEF17 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
 		006BDCF41F2F8E34006DEF17 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -184,6 +186,8 @@
 		00FF14E11FA752E600D9F6FB /* ContactsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchController.swift; sourceTree = "<group>"; };
 		00FF14E31FA7537B00D9F6FB /* ContactsSearchbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSearchbar.swift; sourceTree = "<group>"; };
 		132C40A84842BF014D4FBBF4 /* Pods-LTios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTios/Pods-LTios.debug.xcconfig"; sourceTree = "<group>"; };
+		380195602202009A009F2EC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3801956422020C72009F2EC3 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		38215189215F167E00A7BE9A /* NotificationsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableView.swift; sourceTree = "<group>"; };
 		3821518B215FEBE300A7BE9A /* NotificationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewCell.swift; sourceTree = "<group>"; };
 		38343E6B1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesUICollectionViewCell.swift; sourceTree = "<group>"; };
@@ -232,10 +236,14 @@
 		38B852872128D21B002EBB18 /* Shadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadows.swift; sourceTree = "<group>"; };
 		38B8528B2129AE09002EBB18 /* Gradients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		38B8528D2129C2D0002EBB18 /* RoundedBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderButton.swift; sourceTree = "<group>"; };
+		38C20560220224B600AB9BF0 /* LeftContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftContentViewController.swift; sourceTree = "<group>"; };
+		38C205622202526200AB9BF0 /* MenuNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNavigationViewController.swift; sourceTree = "<group>"; };
 		38D0D97621546D7500FAB683 /* BluetoothServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothServices.swift; sourceTree = "<group>"; };
 		38D0D97821546E0F00FAB683 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		38D0D97B21546E6F00FAB683 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		38D0D97F2156ED7B00FAB683 /* SnapchatLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapchatLoginViewController.swift; sourceTree = "<group>"; };
+		38F6746C22030D41004E28BE /* NearbyPlacesFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlacesFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		38F67472220311D3004E28BE /* FilterLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterLayout.swift; sourceTree = "<group>"; };
 		38FEA1BC212C8A7A00561CF4 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		6ABAAA08C0B5E246906D3643 /* Pods_LTiosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTiosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D3A809CBE0D3BB16C4D7CF /* Pods-LTiosUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTiosUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTiosUITests/Pods-LTiosUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -317,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				006BDCCE1F2F88CA006DEF17 /* NearbyPlacesViewController.swift */,
+				38F6746C22030D41004E28BE /* NearbyPlacesFilterCollectionViewCell.swift */,
+				38F67472220311D3004E28BE /* FilterLayout.swift */,
 				006BDCD01F2F88D4006DEF17 /* PlaceViewController.swift */,
 			);
 			name = NearbyPlaces;
@@ -325,6 +335,8 @@
 		0003288A1F2F870F003F81F7 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				38C20560220224B600AB9BF0 /* LeftContentViewController.swift */,
+				3801956422020C72009F2EC3 /* LeftMenuViewController.swift */,
 				006BDCC81F2F889B006DEF17 /* ProfileViewController.swift */,
 				38215189215F167E00A7BE9A /* NotificationsTableView.swift */,
 				3821518B215FEBE300A7BE9A /* NotificationsTableViewCell.swift */,
@@ -457,7 +469,6 @@
 		00CC1A8E1F1FF09500ECADAD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				004288F41F33B591007FD732 /* MenuViewController.swift */,
 				38B8527B21258E70002EBB18 /* Start */,
 				000328861F2F86E1003F81F7 /* Main */,
 				0003288A1F2F870F003F81F7 /* Profile */,
@@ -508,7 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				006BDCF11F2F8E24006DEF17 /* Fonts */,
-				006BDCEF1F2F8BFA006DEF17 /* Assets.xcassets */,
+				380195602202009A009F2EC3 /* Assets.xcassets */,
 			);
 			name = Ressources;
 			sourceTree = "<group>";
@@ -626,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				38B8527D21259066002EBB18 /* MenuHomeView.swift */,
+				38C205622202526200AB9BF0 /* MenuNavigationViewController.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -767,7 +779,7 @@
 					0007E4D61F1FECD700EBA50C = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = X9UAR68B43;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -781,14 +793,14 @@
 					0007E4ED1F1FECD700EBA50C = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = D8J97J3MM9;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0007E4D61F1FECD700EBA50C;
 					};
 					0007E4F81F1FECD700EBA50C = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = D8J97J3MM9;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0007E4D61F1FECD700EBA50C;
 					};
@@ -820,7 +832,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				387CE23021603BC400F51EFC /* Avenir-MediumOblique.ttf in Resources */,
-				006BDD0A1F2F8E8B006DEF17 /* Assets.xcassets in Resources */,
 				006BDD051F2F8E34006DEF17 /* Roboto-Medium.ttf in Resources */,
 				387CE23221603BC400F51EFC /* Avenir-Roman.ttf in Resources */,
 				38523EAB214DBB530078B0A1 /* SettingsCell.xib in Resources */,
@@ -838,6 +849,7 @@
 				006BDCFE1F2F8E34006DEF17 /* Roboto-Black.ttf in Resources */,
 				387CE22721603BC400F51EFC /* Avenir-Black.ttf in Resources */,
 				006BDD031F2F8E34006DEF17 /* Roboto-Light.ttf in Resources */,
+				380195612202009A009F2EC3 /* Assets.xcassets in Resources */,
 				006BDD091F2F8E34006DEF17 /* Roboto-ThinItalic.ttf in Resources */,
 				38523EA6214DB7BC0078B0A1 /* SettingsUITableViewHeader.xib in Resources */,
 				006BDD061F2F8E34006DEF17 /* Roboto-MediumItalic.ttf in Resources */,
@@ -875,7 +887,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LTios/Pods-LTios-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
@@ -888,7 +900,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTios/Pods-LTios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		320B501CBBB8E2FD805BE927 /* [CP] Check Pods Manifest.lock */ = {
@@ -917,8 +929,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-LTios/Pods-LTios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -936,13 +948,10 @@
 				"${PODS_ROOT}/SnapSDK/SCSDKCreativeKit.framework",
 				"${PODS_ROOT}/SnapSDK/SCSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeMenuViewController/SwipeMenuViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework",
-				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -950,7 +959,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -968,19 +977,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKCreativeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeMenuViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewAnimator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LTios/Pods-LTios-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LTios/Pods-LTios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BCCE959AB011C0C79D598EE1 /* [CP] Check Pods Manifest.lock */ = {
@@ -1031,7 +1037,6 @@
 				006AC85B1FA3A4F000AFCCCE /* ContactsTableViewCell.swift in Sources */,
 				00FF14E21FA752E600D9F6FB /* ContactsSearchController.swift in Sources */,
 				38343E721F8C009700F4909E /* PlaceCollectionViewCell.swift in Sources */,
-				004288F51F33B591007FD732 /* MenuViewController.swift in Sources */,
 				38D0D9802156ED7B00FAB683 /* SnapchatLoginViewController.swift in Sources */,
 				38799295215C52B900AE0DF0 /* AlertBannnerView.swift in Sources */,
 				006BDCD31F2F88E1006DEF17 /* ContactsViewController.swift in Sources */,
@@ -1040,6 +1045,7 @@
 				38B8528E2129C2D0002EBB18 /* RoundedBorderButton.swift in Sources */,
 				006BDCCF1F2F88CA006DEF17 /* NearbyPlacesViewController.swift in Sources */,
 				38B8527E21259066002EBB18 /* MenuHomeView.swift in Sources */,
+				38F6746D22030D41004E28BE /* NearbyPlacesFilterCollectionViewCell.swift in Sources */,
 				00FF14E41FA7537B00D9F6FB /* ContactsSearchbar.swift in Sources */,
 				3879929E215C93E500AE0DF0 /* Notification.swift in Sources */,
 				006BDCD11F2F88D4006DEF17 /* PlaceViewController.swift in Sources */,
@@ -1059,6 +1065,7 @@
 				006BDCD91F2F8961006DEF17 /* ContactProfileViewController.swift in Sources */,
 				38343E701F8B9DE400F4909E /* NearbyPlacesHeaderCollectionReusableView.swift in Sources */,
 				00EBDEA01F2159A100676E70 /* MainUser.swift in Sources */,
+				3801956522020C72009F2EC3 /* LeftMenuViewController.swift in Sources */,
 				38D0D97721546D7500FAB683 /* BluetoothServices.swift in Sources */,
 				38343E6E1F8AB2B400F4909E /* NearbyPlacesUICollectionView.swift in Sources */,
 				38343E6C1F8AB20100F4909E /* NearbyPlacesUICollectionViewCell.swift in Sources */,
@@ -1087,12 +1094,15 @@
 				3864662C1F8526B200C18D53 /* Colors.swift in Sources */,
 				384863AC2122E832004222DE /* Utils.swift in Sources */,
 				3821518A215F167E00A7BE9A /* NotificationsTableView.swift in Sources */,
+				38C20561220224B600AB9BF0 /* LeftContentViewController.swift in Sources */,
 				38B8527821243AB7002EBB18 /* InteractiveViewController.swift in Sources */,
 				0029BA661F30A37F00C67810 /* Extension.swift in Sources */,
 				38799293215C50FE00AE0DF0 /* AlertBanner.swift in Sources */,
+				38F67473220311D3004E28BE /* FilterLayout.swift in Sources */,
 				006BDCCB1F2F88A7006DEF17 /* SettingsViewController.swift in Sources */,
 				38700AE7214C2A8D000ACE44 /* SnapchatServices.swift in Sources */,
 				38B852852128935B002EBB18 /* InterestingUsersTableViewCell.swift in Sources */,
+				38C205632202526200AB9BF0 /* MenuNavigationViewController.swift in Sources */,
 				3864662A1F85267D00C18D53 /* Fonts.swift in Sources */,
 				004289411F4AE3B6007FD732 /* GlobalUser.swift in Sources */,
 			);

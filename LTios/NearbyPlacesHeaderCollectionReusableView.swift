@@ -29,7 +29,7 @@ class NearbyPlacesHeaderCollectionReusableView: UICollectionReusableView {
         
         if self.subviews.count == 0 {
             label.textColor = .gray
-            label.font = LTFont.NearbyPlaces.TableView.headerTitle
+            label.font = LTFont.NearbyPlaces.NearbyPlacesCollectionView.headerTitle
             label.translatesAutoresizingMaskIntoConstraints = false
             self.addSubview(label)
             addHeaderConstraints()

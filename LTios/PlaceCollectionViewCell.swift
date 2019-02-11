@@ -48,19 +48,19 @@ class PlaceCollectionViewCell: UICollectionViewCell {
         placeImageView.contentMode = .scaleAspectFill
         placeImageView.layer.cornerRadius = 15
         
-        publicNameLabel.font = LTFont.NearbyPlaces.TableView.Cell.name
+        publicNameLabel.font = LTFont.NearbyPlaces.NearbyPlacesCollectionView.Cell.name
         publicNameLabel.textColor = .white
         
         distanceIcon.image = UIImage(named: "ic_location")
         
-        distanceLabel.font = LTFont.NearbyPlaces.TableView.Cell.distance
+        distanceLabel.font = LTFont.NearbyPlaces.NearbyPlacesCollectionView.Cell.distance
         distanceLabel.textColor = .white
         
         
-        typeLabel.font = LTFont.NearbyPlaces.TableView.Cell.type
+        typeLabel.font = LTFont.NearbyPlaces.NearbyPlacesCollectionView.Cell.type
         typeLabel.textColor = .white
         
-        peopleLabel.font = LTFont.NearbyPlaces.TableView.Cell.people
+        peopleLabel.font = LTFont.NearbyPlaces.NearbyPlacesCollectionView.Cell.people
         peopleLabel.textColor = .white
         peopleLabel.textAlignment = .right
         
