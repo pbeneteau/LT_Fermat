@@ -7,17 +7,3 @@
 //
 
 import UIKit
-
-class ModalViewViewController: UIViewController {
-    
-    override var prefersStatusBarHidden: Bool {
-        get {
-            return true
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setNeedsStatusBarAppearanceUpdate()
-    }
-}
